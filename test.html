@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Echo Test</title>
+</head>
+<body>
+    <script>
+        const ws = new WebSocket("wss://echo.websocket.org");
+
+        ws.onopen = () => {
+            console.log("Connected to WebSocket");
+            ws.send("Test message from browser");
+        };
+
+        ws.onmessage = (event) => {
+            console.log("Message received:", event.data);
+        };
+
+        ws.onclose = () => {
+            console.log("WebSocket closed");
+        };
+    </script>
+</body>
+</html>
